@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { Howl } from 'howler';
 
 class Game {
     private scene: THREE.Scene;
