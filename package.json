@@ -1,21 +1,25 @@
 {
   "name": "mighty-truck-adventure",
+  "private": true,
   "version": "1.0.0",
-  "description": "A kid-friendly 3D truck driving game",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "tsc && vite build",
+    "preview": "vite preview --host",
+    "start": "vite preview --host"
   },
   "dependencies": {
     "howler": "^2.2.4",
     "three": "^0.162.0"
   },
   "devDependencies": {
-    "@types/howler": "^2.2.12",
+    "@types/howler": "^2.2.11",
     "@types/three": "^0.162.0",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.4"
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
