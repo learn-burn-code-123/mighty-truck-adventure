@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mighty Truck Adventure!</title>
+    <style>
+        * {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: #000;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+        #game-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #ui-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .control-button {
+            position: fixed;
+            bottom: 5vh;
+            width: 15vh;
+            height: 15vh;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8vh;
+            pointer-events: auto;
+            user-select: none;
+            touch-action: manipulation;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.1s;
+            z-index: 1000;
+        }
+        .control-button:active {
+            transform: scale(0.95);
+        }
+        #accelerate {
+            right: 5vw;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+        }
+        #brake {
+            right: 25vw;
+            background: linear-gradient(45deg, #f44336, #da190b);
+            color: white;
+        }
+        #steering-wheel {
+            position: fixed;
+            bottom: 5vh;
+            left: 5vw;
+            width: 20vh;
+            height: 20vh;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+            user-select: none;
+            touch-action: manipulation;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border: 1vh solid #666;
+            z-index: 1000;
+        }
+        #steering-wheel::before {
+            content: '';
+            position: absolute;
+            width: 17vh;
+            height: 17vh;
+            border-radius: 50%;
+            background: #444;
+            border: 0.5vh solid #555;
+        }
+        #steering-wheel::after {
+            content: '';
+            position: absolute;
+            width: 6vh;
+            height: 6vh;
+            border-radius: 50%;
+            background: #666;
+            border: 0.3vh solid #777;
+        }
+        #steering-wheel:active {
+            transform: scale(0.95);
+        }
+        #game-title {
+            position: fixed;
+            top: 2vh;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 6vh;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            pointer-events: none;
+            z-index: 1000;
+        }
+        #timer-display {
+            position: fixed;
+            top: 2vh;
+            right: 2vw;
+            color: white;
+            font-size: 4vh;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        #life-display {
+            position: fixed;
+            top: 2vh;
+            left: 2vw;
+            color: white;
+            font-size: 4vh;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        @media (orientation: landscape) {
+            .control-button {
+                bottom: 10vh;
+                width: 12vh;
+                height: 12vh;
+                font-size: 6vh;
+            }
+            #steering-wheel {
+                bottom: 10vh;
+                width: 16vh;
+                height: 16vh;
+            }
+            #steering-wheel::before {
+                width: 14vh;
+                height: 14vh;
+            }
+            #steering-wheel::after {
+                width: 5vh;
+                height: 5vh;
+            }
+            #game-title {
+                font-size: 4vh;
+            }
+            #timer-display, #life-display {
+                font-size: 3vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container"></div>
+    <div id="ui-container">
+        <div id="game-title">Mighty Truck Adventure!</div>
+        <div id="steering-wheel"></div>
+        <div id="accelerate" class="control-button">🚀</div>
+        <div id="brake" class="control-button">🛑</div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html> 
